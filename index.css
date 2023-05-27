@@ -7,6 +7,7 @@ body {
 }
 * {
     box-sizing: border-box;
+    -webkit-user-drag: none;
     padding:0;
     margin:0;
     font-family: outfit;
@@ -30,24 +31,23 @@ body {
 .menu-container {
     display:flex;
     flex-direction:column;
-    margin-top:158px;
+    margin-top:100px;
+    gap:20px;
 }
 .btn {
-    width:100%;
     position:relative;
     cursor:pointer;
-    text-align: left;
     outline:none;
     border:none;
+}
+.btn.menu-btn {
+    text-align: left;
     padding:14px;
     color:rgba(128, 122, 117, 1);
     font-size:14px;
     border-radius:10px;
-
-    transition:0.3s ease-in-out;
-}
-.menu-btn:not(:first-child) {
-    margin-top:24px;
+    transition:0.2s ease-in-out;
+    width:100%;
 }
 .btn.menu-btn:is(:focus, :hover) {
     background:rgb(227, 233, 255);
@@ -63,7 +63,7 @@ body {
 .m-item-1 {
     display:inline-block;
 }
-img,svg {
+img,svg,.m-item-1,.ad-title {
     vertical-align: middle;
 }
 .img.icon-2 {
@@ -89,4 +89,178 @@ svg path {
     right:10px;
     top:50%;
     transform:translate(0,-50%);
+}
+.ad {
+    background: linear-gradient(180deg, #FFFFFF 17.07%, rgba(255, 255, 255, 0) 91.11%);
+    margin-top:159px;
+    margin-bottom:159px;
+    border-radius:20px;
+}
+.ad-container {
+    width:90%;
+    margin-left:5%;
+}
+.ad-title {
+    font-size:24px;
+    color:rgba(19, 32, 80, 1);
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:14px;
+}
+.img.fire-img {
+    width:30px;
+    height:30px;
+}
+.ad-description {
+    font-size:16px;
+    color:rgba(123, 108, 141, 1);
+    margin-bottom:30px;
+    text-align:center;
+}
+.btn.ad-button {
+    background:rgba(181, 217, 246, 1);
+    text-align:center;
+    font-size:16px;
+    font-weight:500;
+    color:black;
+    padding:16px 0px;
+    border-radius:26px;
+    position:relative;
+    width:100%;
+}
+.btn.ad-button::before {
+    --border-size:2px;
+    --background-color:rgba(181, 217, 246, 1);
+
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    border-radius:40px;
+
+    border:var(--border-size) solid var(--background-color);
+    transition:top,left,right,bottom, 0.3s ease-in-out;
+}
+.btn.ad-button:is(:hover, :focus)::before {
+    top:calc(var(--border-size) * -3);
+    left:calc(var(--border-size) * -3);
+    right:calc(var(--border-size) * -3);
+    bottom:calc(var(--border-size) * -3);
+}
+
+.top-nav {
+    padding:10px;
+    border-radius:80px;
+    background:rgba(255, 255, 255, 1);
+    margin-top:44px;
+    width:100%;
+    align-items:center;
+    gap:4%;
+}
+.top-nav, .tp-container-1 {
+    display:flex;
+    flex-direction:row;
+}
+.tp-container-1 {
+    width:48%;
+}
+.tp-container-1:first-child {
+    gap:20px;
+}
+.tp-container-1:last-child {
+    gap:20px;
+}
+.user-details {
+    display:flex;
+    gap:14px;
+}
+.username-container {
+    display:flex;
+    flex-direction: column;
+    margin-top:6.5px;
+    gap:6px;
+}
+.user-name {
+    font-size:18px;
+    color:rgba(19, 32, 80, 1);
+}
+.user-name.again {
+    font-size:14px;
+    color:rgba(19, 32, 80, 0.48);
+}
+.right-border {
+    height:60px;
+    border-right:1px solid #F6F6F6;
+}
+.text-date, .img.date-img {
+    display:inline-block
+}
+.today-date {
+    display:flex;
+    align-items:center;
+}
+.date-img {
+    width:24px;
+    height:24px;
+}
+.background-date {
+    background:#F6F6F6;
+    border-radius:30px;
+    padding:10px 14px;
+    display:flex;
+    gap:12px;
+    align-items: center;
+}
+form {
+    position:relative;
+    width:80%;
+    /* background:rgba(246, 246, 246, 1);
+    border-radius:30px;
+    position:relative;
+    z-index:0; */
+}
+/* form::before {
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgb(241, 250, 255);
+    border-radius:30px;
+    z-index:0;
+
+    transform:scaleX(0);
+    transform-origin:right;
+
+    transition:transform 0.3s ease-in-out;
+} */
+.input-search {
+    padding:14px;
+    border-radius:30px;
+    background:#0000;
+    width:100%;
+    height:100%;
+    border:none;
+    outline:none;
+    background:rgba(246, 246, 246, 1);
+    border-radius:30px;
+    padding-left:50px;
+    font-size:14px;
+    color:rgba(143, 143, 143, 1);
+    z-index:1;
+}
+.search-icon {
+    position:absolute;
+    left:0;
+    top:50%;
+    transform:translate(0,-50%);
+    margin-left:14px;
+}
+.notification, .chat {
+    padding:14px;
+    background:rgba(246, 246, 246, 1);
+    border-radius:50%;
 }
